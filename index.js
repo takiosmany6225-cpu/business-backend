@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 /
-const dbURI = "mongodb+srv://Admin:<admin>@admin.qe1vxlq.mongodb.net/?appName=admin";
+const dbURI = "mongodb+srv://Admin:admin@admin.qe1vxlq.mongodb.net/?appName=admin";
 
 mongoose.connect(dbURI)
   .then(() => console.log('MongoDB Connected Successfully!'))
