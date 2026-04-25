@@ -7,11 +7,12 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-
+/
 const dbURI = "mongodb+srv://Admin:<admin>@admin.qe1vxlq.mongodb.net/?appName=admin";
+
 mongoose.connect(dbURI)
   .then(() => console.log('MongoDB Connected Successfully!'))
-  .catch((err) => console.error('Connection Error:', err));
+  .catch((err) => console.error('DB Connection Error:', err));
 
 
 const Product = mongoose.model('Product', {
@@ -21,16 +22,17 @@ const Product = mongoose.model('Product', {
 });
 
 app.get('/', (req, res) => {
-  res.send('QUZZY & Anopia Agro Backend is now connected to MongoDB!');
+  res.send('Backend and MongoDB are now Synced for QUZZY & Anopia Agro!');
 });
+
 
 app.post('/add', async (req, res) => {
   try {
     const product = new Product(req.body);
     await product.save();
-    res.status(201).send('Product Saved Successfully!');
+    res.status(201).send('Success: Product Saved to Database!');
   } catch (e) {
-    res.status(400).send(e.message);
+    res.status(400).send('Error: ' + e.message);
   }
 });
 
