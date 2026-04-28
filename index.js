@@ -38,4 +38,4 @@ app.post('/add', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-const dbURI = "mongodb+srv://Admin:admin@admin.qe1vxlq.mongodb.net/?appName=admin"; 
+mongodb+srv://Admin:admin.mongodb.net/?appName=admin
